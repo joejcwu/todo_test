@@ -57,6 +57,12 @@
     return button;
   }
 
+  function focusAfterTaskAction(taskId, controlSelector) {
+    const row = [...list.children].find(item => item.dataset.taskId === taskId);
+    const control = row && controlSelector && row.querySelector(controlSelector);
+    (control || filterButtons.find(button => button.dataset.filter === filter)).focus();
+  }
+
   function renderEdit(row, task) {
     const editForm = document.createElement("form");
     editForm.className = "edit-form";
@@ -73,6 +79,7 @@
     function cancel() {
       editingId = null;
       render();
+      focusAfterTaskAction(task.id, ".edit-button");
     }
 
     editForm.addEventListener("submit", event => {
@@ -86,6 +93,7 @@
       editingId = null;
       saveTasks();
       render();
+      focusAfterTaskAction(task.id, ".edit-button");
     });
     input.addEventListener("keydown", event => {
       if (event.key === "Escape") cancel();
@@ -103,6 +111,7 @@
 
   function renderTask(task) {
     const row = document.createElement("li");
+    row.dataset.taskId = task.id;
     row.className = task.completed ? "task-item is-complete" : "task-item";
     if (editingId === task.id) {
       renderEdit(row, task);
@@ -117,6 +126,7 @@
       task.completed = checkbox.checked;
       saveTasks();
       render();
+      focusAfterTaskAction(task.id, 'input[type="checkbox"]');
     });
 
     const title = document.createElement("span");
@@ -135,6 +145,7 @@
         if (editingId === task.id) editingId = null;
         saveTasks();
         render();
+        focusAfterTaskAction(task.id);
       }, `Delete task: ${task.title}`)
     );
     row.append(checkbox, title, actions);
