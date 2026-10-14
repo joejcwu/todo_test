@@ -83,7 +83,7 @@ Commit `index.html` and `app.js` as `feat: add personal todo list interactions`.
 
 - [ ] **Step 1: Add `test_keyboard_and_mobile_layout` to the temporary browser checks**
 
-At viewport widths 375 px and 1280 px, assert `document.documentElement.scrollWidth <= window.innerWidth`. Tab from the document start and assert `#task-input` receives focus with a visible outline.
+At viewport widths 375 px and 1280 px, assert `document.documentElement.scrollWidth <= window.innerWidth` and `getComputedStyle(document.body).backgroundColor == "rgb(250, 247, 239)"`. Tab from the document start and assert `#task-input` receives focus with a visible outline.
 
 - [ ] **Step 2: Run the new layout check before adding CSS**
 
@@ -92,7 +92,7 @@ Expected: FAIL because the stylesheet and visible focus treatment are not presen
 
 - [ ] **Step 3: Implement the approved visual design**
 
-Use a warm paper background, dark text, coral accents, a centered responsive column, clear task rows, and visible hover/focus states. Add a mobile layout that wraps controls without horizontal overflow. Reference `styles.css` relatively from `index.html`.
+Use `#faf7ef` for the warm paper background, with dark text, coral accents, a centered responsive column, clear task rows, and visible hover/focus states. Add a mobile layout that wraps controls without horizontal overflow. Reference `styles.css` relatively from `index.html`.
 
 - [ ] **Step 4: Run the complete browser check list**
 
