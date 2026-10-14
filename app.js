@@ -197,6 +197,7 @@
     tasks = tasks.filter(task => !task.completed);
     saveTasks();
     render();
+    filterButtons.find(button => button.dataset.filter === filter).focus();
   });
 
   loadTasks();
