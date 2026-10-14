@@ -1,0 +1,174 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #292524;
+  background: #faf7ef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  background: #faf7ef;
+  line-height: 1.5;
+}
+
+button, input { font: inherit; }
+
+button { cursor: pointer; }
+
+button:disabled { cursor: not-allowed; opacity: .5; }
+
+:where(button, input):focus-visible {
+  outline: 3px solid #a9382f;
+  outline-offset: 3px;
+}
+
+.app-shell {
+  width: min(100% - 2rem, 46rem);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 5.5rem) 0 4rem;
+}
+
+.app-header { margin-bottom: 2rem; }
+
+.app-header p { margin: .5rem 0 0; color: #6e6058; }
+
+.app-header .eyebrow {
+  margin: 0 0 .5rem;
+  color: #ad4b3f;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 8vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1.1;
+}
+
+.task-panel {
+  min-width: 0;
+  padding: clamp(1.15rem, 4vw, 2rem);
+  border: 1px solid #e9ded0;
+  border-radius: 1.25rem;
+  background: #fffdf9;
+  box-shadow: 0 16px 46px rgb(63 42 28 / 7%);
+}
+
+#task-form label, .edit-form label {
+  display: block;
+  margin-bottom: .5rem;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.task-entry, .edit-form { display: flex; flex-wrap: wrap; gap: .65rem; }
+
+.task-entry input, .edit-form input {
+  flex: 1 1 15rem;
+  min-width: 0;
+  padding: .75rem .9rem;
+  border: 1px solid #cfc1b3;
+  border-radius: .65rem;
+  background: white;
+  color: inherit;
+}
+
+.task-entry input:hover, .edit-form input:hover { border-color: #a98e7f; }
+
+.task-entry input:focus, .edit-form input:focus { border-color: #a9382f; }
+
+.task-entry button, .edit-form button[type="submit"] {
+  padding: .75rem 1.15rem;
+  border: 1px solid #b94d40;
+  border-radius: .65rem;
+  background: #bf5446;
+  color: white;
+  font-weight: 700;
+}
+
+.task-entry button:hover, .edit-form button[type="submit"]:hover { background: #a9382f; }
+
+#storage-notice {
+  padding: .8rem 1rem;
+  border-radius: .6rem;
+  background: #fff0e4;
+  color: #784329;
+}
+
+.task-toolbar { margin-top: 1.8rem; }
+
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+.filters button, .task-actions button, .edit-form .cancel-button, #clear-completed {
+  padding: .45rem .75rem;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+  background: transparent;
+  color: #594941;
+  font-weight: 600;
+}
+
+.filters button:hover, .task-actions button:hover, .edit-form .cancel-button:hover,
+#clear-completed:hover:not(:disabled) { background: #f7e8df; color: #8d382e; }
+
+.filters button[aria-pressed="true"] { background: #f8d9d0; color: #813026; }
+
+#task-list { margin: 1rem 0 0; padding: 0; list-style: none; }
+
+.task-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .7rem;
+  min-width: 0;
+  padding: 1rem .15rem;
+  border-bottom: 1px solid #eae1d7;
+}
+
+.task-item input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: #bf5446;
+  cursor: pointer;
+}
+
+.task-title { flex: 1 1 12rem; min-width: 0; overflow-wrap: anywhere; }
+
+.is-complete .task-title { color: #81766f; text-decoration: line-through; }
+
+.task-actions { display: flex; flex-wrap: wrap; gap: .15rem; margin-left: auto; }
+
+.edit-form { flex: 1 1 100%; min-width: 0; align-items: end; }
+
+.edit-form label { flex: 1 1 100%; margin: 0; }
+
+.edit-form input { flex-basis: 100%; }
+
+#empty-state { padding: 1.2rem 0; color: #75685e; }
+
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  margin-top: 1.25rem;
+  color: #6e6058;
+  font-size: .9rem;
+}
+
+@media (max-width: 420px) {
+  .app-shell { width: min(100% - 1.25rem, 46rem); }
+  .task-entry button { flex: 1 1 100%; }
+  .task-actions { flex-basis: 100%; margin-left: 1.85rem; }
+}
