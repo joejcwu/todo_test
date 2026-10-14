@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f1e8">
+    <title>Everyday Tasks</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <p class="eyebrow">A little room for what matters</p>
+        <h1>Everyday Tasks</h1>
+        <p>Keep today moving, one thing at a time.</p>
+      </header>
+
+      <section class="task-panel" aria-label="Your tasks">
+        <form id="task-form">
+          <label for="task-input">New task</label>
+          <div class="task-entry">
+            <input id="task-input" name="task" type="text" autocomplete="off" placeholder="What needs doing?">
+            <button type="submit">Add task</button>
+          </div>
+        </form>
+
+        <p id="storage-notice" role="status" hidden>Browser storage is unavailable. Changes may not remain after you reload.</p>
+
+        <div class="task-toolbar">
+          <div class="filters" role="group" aria-label="Show tasks">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="active" aria-pressed="false">Active</button>
+            <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
+          </div>
+        </div>
+
+        <ul id="task-list" aria-label="Tasks"></ul>
+        <p id="empty-state" role="status"></p>
+
+        <footer class="task-footer">
+          <output id="remaining-count">0 tasks remaining</output>
+          <button id="clear-completed" type="button">Clear completed</button>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
